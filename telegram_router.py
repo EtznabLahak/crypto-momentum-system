@@ -1,11 +1,11 @@
+from dotenv import load_dotenv
+import os
 import aiohttp
 
-TELEGRAM_BOT_TOKEN = "8926781608:AAG6wqCTjQ4FYWWq60hsIpytlsCSaibLCco"
+load_dotenv()
 
-TELEGRAM_CHAT_IDS = [
-    "365661286",
-    "8697841471"
-]
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT_IDS = os.getenv("TELEGRAM_CHAT_IDS").split(",")
 
 
 async def send_telegram(message):
@@ -28,5 +28,4 @@ async def send_telegram(message):
                     pass
 
             except Exception as e:
-
                 print(f"Telegram Error: {e}")

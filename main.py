@@ -49,6 +49,11 @@ async def get_symbols():
 
         async with session.get(url) as response:
 
+            text = await response.text()
+
+            print("BYBIT RESPONSE:")
+            print(text)
+
             data = await response.json()
 
             symbols = []
